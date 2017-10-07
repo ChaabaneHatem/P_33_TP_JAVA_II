@@ -11,7 +11,7 @@ public class ConnectionBDD {
 	private static final String pwd = "abc123...";
 	private static Connection connection = null;
 
-	private static void getConnection() {
+	public static void getConnection() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			connection = DriverManager.getConnection(url, identifiant, pwd);

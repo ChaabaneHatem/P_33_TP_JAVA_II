@@ -6,19 +6,26 @@ public class Produit {
 	private double prix;
 	private String desc;
 	private String imgUrl;
+	private int idCategorie;
+	private int idRecette;
 	
 	public Produit() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Produit(int id,String nom,double prix,String desc,String imgUrl){
+
+	public Produit(int id, String nom, double prix, String desc, String imgUrl, int idCategorie, int idRecette) {
 		super();
-		this.id=id;
-		this.nom=nom;
-		this.prix=prix;
-		this.desc=desc;
-		this.imgUrl=imgUrl;
+		this.id = id;
+		this.nom = nom;
+		this.prix = prix;
+		this.desc = desc;
+		this.imgUrl = imgUrl;
+		this.idCategorie = idCategorie;
+		this.idRecette = idRecette;
 	}
+
+
 
 	public int getId() {
 		return id;
@@ -58,6 +65,22 @@ public class Produit {
 
 	public void setImgUrl(String imgUrl) {
 		this.imgUrl = imgUrl;
+	}
+
+	public int getIdCategorie() {
+		return idCategorie;
+	}
+
+	public void setIdCategorie(int idCategorie) {
+		this.idCategorie = idCategorie;
+	}
+
+	public int getIdRecette() {
+		return idRecette;
+	}
+
+	public void setIdRecette(int idRecette) {
+		this.idRecette = idRecette;
 	}
 	
 }

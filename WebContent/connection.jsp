@@ -8,7 +8,7 @@
 </head>
 <body>
 	<!--HEADER-->
-	<%@ include file="parts/header.jsp"%>
+	<%@ include file="views/header.jsp"%>
 
 	<img src="images/connection.jpeg" alt="Mamie clafoutis">
 
@@ -19,6 +19,6 @@
 	<input type="text" name="username">
 
 	<!--FOOTER-->
-	<%@ include file="parts/footer.jsp"%>
+	<%@ include file="views/footer.jsp"%>
 </body>
 </html>

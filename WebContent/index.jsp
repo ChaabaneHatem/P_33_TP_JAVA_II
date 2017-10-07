@@ -8,7 +8,7 @@
 </head>
 <body>
 	<!--HEADER-->
-	<%@ include file="parts/header.jsp"%>
+	<%@ include file="views/header.jsp"%>
 
 	<!--MAIN-->
 		<img src="images/banner-main.jpeg" alt="Mamie clafoutis" >
@@ -21,6 +21,6 @@
 		pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
 		culpa qui officia deserunt mollit anim id est laborum</p>
 	<!--FOOTER-->
-	<%@ include file="parts/footer.jsp"%>
+	<%@ include file="views/footer.jsp"%>
 </body>
 </html>
