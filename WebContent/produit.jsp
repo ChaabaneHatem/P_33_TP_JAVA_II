@@ -25,7 +25,7 @@
 		%>
 		<div class="produit_unit">
 			<h3><%=produit.getIdCategorie()%></h3>
-			<a href="descriptionProduit.jsp?idProduit=<%=produit.getId()%>"><img
+			<a href="afficherProduit?idProduit=<%=produit.getId()%>"><img
 				src="<%=produit.getImgUrl()%>" /></a>
 			<h3><%=produit.getNom()%></h3>
 			<h4><%=produit.getPrix()%></h4>
