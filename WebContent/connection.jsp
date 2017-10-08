@@ -11,13 +11,21 @@
 	<!--HEADER-->
 	<%@ include file="views/header.jsp"%>
 
-	<img src="images/connection.jpeg" alt="Mamie clafoutis">
+	<img src="images/connexion.jpeg" alt="Mamie clafoutis">
 
-	<h1>Connectez-vous !</h1>
-	<label for="username">Nom d'utilisateur</label>
-	<input type="text" name="username">
-	<label for="pwd">Mot de passe</label>
-	<input type="text" name="username">
+	<h1 id="titre-connection">Connectez-vous !</h1>
+
+	<form action="" method="post" id="form-connect">
+		<ul>
+			<li><label for="username">Nom d'utilisateur</label> <input
+				type="text" name="username"></li>
+			<li><label for="pwd">Mot de passe</label> <input type="text"
+				name="username"></li>
+		</ul>
+		<div id="form-bouton">
+			<a href="#"><button id="connect-form">Connectez-vous</button></a>
+		</div>
+	</form>
 
 	<!--FOOTER-->
 	<%@ include file="views/footer.jsp"%>

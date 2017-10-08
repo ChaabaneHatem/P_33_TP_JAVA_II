@@ -12,7 +12,8 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="css/main.css">
-<link href="https://fonts.googleapis.com/css?family=Khula" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Khula"
+	rel="stylesheet">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>les produits</title>
 </head>
@@ -20,8 +21,15 @@
 
 	<!--HEADER-->
 	<%@ include file="views/header.jsp"%>
-	<main>
+	<main> <img src="images/petits-gateaux.jpeg"
+		alt="Mamie clafoutis">
 	<div id="wrapper_produit">
+		<h1 id="titre-produit">Nos produits</h1>
+		<div>
+			<label for="prix">Par prix :</label> <input type="radio"
+				name="filtre" id="prix"> <label for="lettre">Par nom
+				:</label> <input type="radio" name="filtre" id="lettre">
+		</div>
 		<%
 			for (Produit produit : listeProduits) {
 		%>
