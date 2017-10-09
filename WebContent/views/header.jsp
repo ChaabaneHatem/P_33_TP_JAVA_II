@@ -1,6 +1,6 @@
 
 <header>
-	<img id="logo" src="images/mamieclafoutis_logo.png" alt="Mamie clafoutis" >
+	<a href="index.jsp"><img id="logo" src="images/mamieclafoutis_logo.png" alt="Mamie clafoutis" ></a>
 	<div id="nav-header">
 		<ul>
 			<li><a href="index.jsp">Accueil</a></li>
