@@ -28,8 +28,14 @@ public class ManagerProduits {
 	private static String queryGetAllCategorieProduit = "SELECT * FROM mamie_clafoutie.categorie";
 
 	private static String queryGetAllIngredient = "SELECT * FROM mamie_clafoutie.`table ingredient`";
-	
+
 	private static String queryGetAllRecette = "SELECT * FROM mamie_clafoutie.`table recette`";
+
+	private static String queryGetRecetteById = "SELECT re.id_recette, re.description, ing.id_ingredient, ing.description, co.quantite FROM mamie_clafoutie.`table recette` as re inner join `table compose` co on co.`table recette_id_recette` = re.id_recette\r\n" + 
+			"																																									  inner join `table ingredient`  ing on co.`table ingredient_id_ingredient` = ing.id_ingredient\r\n" + 
+			"																																										where id_recette = ?";
+	
+	
 
 	public static ArrayList<Produit> getAllProduit() {
 		ArrayList<Produit> retour = null;
@@ -162,7 +168,7 @@ public class ManagerProduits {
 			if (result.isBeforeFirst()) {
 				listeDesCategories = new ArrayList<>();
 				while (result.next()) {
-					CategorieProduit categorie =new CategorieProduit();
+					CategorieProduit categorie = new CategorieProduit();
 					categorie.setIdCategorie(result.getInt(1));
 					categorie.setNomCategorie(result.getString(2));
 					listeDesCategories.add(categorie);
@@ -213,9 +219,9 @@ public class ManagerProduits {
 			if (result.isBeforeFirst()) {
 				listeRecette = new ArrayList<>();
 				while (result.next()) {
-					Recette Recette =new Recette();
-				    Recette.setIdRecette(result.getInt(1));
-				    Recette.setNomRecette(result.getString(2));
+					Recette Recette = new Recette();
+					Recette.setIdRecette(result.getInt(1));
+					Recette.setNomRecette(result.getString(2));
 					listeRecette.add(Recette);
 				}
 
@@ -225,6 +231,37 @@ public class ManagerProduits {
 			e1.printStackTrace();
 		}
 		return listeRecette;
+	}
+
+	public static Recette getRecetteById(int idRecette) {
+
+		Recette recette = null;
+		ArrayList<Ingredient> lesingredients;
+		try {
+			ConnectionBDD.getConnection();
+			PreparedStatement pstatment = ConnectionBDD.getPs(queryGetRecetteById);
+			pstatment.setInt(1, idRecette);
+			ResultSet result = pstatment.executeQuery();
+
+			if (result.isBeforeFirst()) {
+				recette = new Recette();
+				lesingredients = new ArrayList<>();
+				while (result.next()) {
+					recette.setIdRecette(idRecette);
+					recette.setNomRecette(result.getString(2));
+					Ingredient ing = new Ingredient();
+					ing.setIdIngredient(result.getInt(3));
+					ing.setNomIngredient(result.getString(4));
+					ing.setQuantite(result.getInt(5));
+					lesingredients.add(ing);
+				}
+				recette.setLesIngredient(lesingredients);
+			}
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		return recette;
 	}
 
 }
