@@ -7,19 +7,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import action.ActionProduit;
-
 /**
- * Servlet implementation class AjoutNouveauDonnees
+ * Servlet implementation class RetierDonnees
  */
-@WebServlet("/ajoutNouveauDonnees")
-public class AjoutNouveauDonnees extends HttpServlet {
+@WebServlet("/retierDonnees")
+public class RetierDonnees extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AjoutNouveauDonnees() {
+    public RetierDonnees() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,12 +27,12 @@ public class AjoutNouveauDonnees extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		ActionProduit.afficherAllCategorie(request);
-		ActionProduit.afficherAllRecette(request);
-		ActionProduit.afficherAllIngredient(request);
-		request.getRequestDispatcher("WEB-INF/ajoutDonnees.jsp").forward(request, response);
-
 		
+		
+		
+	
+	
+	
 	}
 
 	/**

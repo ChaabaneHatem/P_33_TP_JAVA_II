@@ -37,4 +37,9 @@ public class ActionProduit {
 			ArrayList<Recette> listeRecette= ManagerProduits.getAllRecette();
 			request.setAttribute(C.listeRecette, listeRecette);
 		}
+		
+		public static void afficherRecetteById (HttpServletRequest request, int idRecette) {
+			Recette recette= ManagerProduits.getRecetteById(idRecette);
+			request.setAttribute(C.recette, recette);
+		}
 }
