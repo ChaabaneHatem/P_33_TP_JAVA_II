@@ -8,7 +8,8 @@ import services.ConnectionBDD;
 
 public class ManagerInventaire {
 
-	private static String queryAjouQty=  "INSERT INTO table vente"+ "(id_ord, quantite_total, quantite_restante,date,science,id_employe,id_produit) VALUES"+"(?,?,?,?,?,?,?)";
+	private static String queryAjouQty=  "INSERT INTO `table vente` VALUES (?,?,?,?,?,?,?)";
+
 	
 	public static void ajoutProduit(Vente venteAjout){
 	try {

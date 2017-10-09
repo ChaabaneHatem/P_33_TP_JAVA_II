@@ -36,7 +36,7 @@
 			for (Produit produit : listeProduits) {
 		%>
 		<div class="produit_unit">
-			<h3><%=produit.getIdCategorie()%></h3>
+			<h3><%=produit.getCategorieProduit().getNomCategorie()%></h3> 
 			<a href="afficherProduit?idProduit=<%=produit.getId()%>"><img
 				src="<%=produit.getImgUrl()%>" /></a>
 			<h3><%=produit.getNom()%></h3>

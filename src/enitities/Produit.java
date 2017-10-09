@@ -1,29 +1,21 @@
 package enitities;
 
+import manager.ManagerProduits;
+
 public class Produit {
 	private int id;
 	private String nom;
 	private double prix;
 	private String desc;
 	private String imgUrl;
-	private int idCategorie;
-	private int idRecette;
+	private CategorieProduit categorieProduit;
+	private Recette saRecette;
+	
 	
 	public Produit() {
 		// TODO Auto-generated constructor stub
 	}
 	
-
-	public Produit(int id, String nom, double prix, String desc, String imgUrl, int idCategorie, int idRecette) {
-		super();
-		this.id = id;
-		this.nom = nom;
-		this.prix = prix;
-		this.desc = desc;
-		this.imgUrl = imgUrl;
-		this.idCategorie = idCategorie;
-		this.idRecette = idRecette;
-	}
 
 
 
@@ -38,6 +30,7 @@ public class Produit {
 	public String getNom() {
 		return nom;
 	}
+	
 
 	public void setNom(String nom) {
 		this.nom = nom;
@@ -67,20 +60,31 @@ public class Produit {
 		this.imgUrl = imgUrl;
 	}
 
-	public int getIdCategorie() {
-		return idCategorie;
+
+
+	public CategorieProduit getCategorieProduit() {
+		return categorieProduit;
 	}
 
-	public void setIdCategorie(int idCategorie) {
-		this.idCategorie = idCategorie;
+
+
+
+	public void setCategorieProduit(CategorieProduit categorieProduit) {
+		this.categorieProduit = categorieProduit;
 	}
 
-	public int getIdRecette() {
-		return idRecette;
+
+
+
+	public Recette getSaRecette() {
+		return saRecette;
 	}
 
-	public void setIdRecette(int idRecette) {
-		this.idRecette = idRecette;
+
+
+
+	public void setSaRecette(Recette saRecette) {
+		this.saRecette = saRecette;
 	}
 	
 }
