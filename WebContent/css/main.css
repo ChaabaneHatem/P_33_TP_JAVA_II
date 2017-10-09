@@ -176,6 +176,37 @@ div.descrip-produit p {
 	display: block;
 }
 
+/***PAGE Modification recette et ajouter/retirer produit***/
+#section-recette {
+	float: right;
+	margin-right: 200px;
+}
+
+#img-gestion-produit {
+	width: 40%;
+	margin: 20px;
+}
+
+.bouton-gestion{
+    background-color: rgb(256, 172, 154);
+    border: none;
+    height: 47px;
+    width: 260px;
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: white;
+}
+
+.bouton-gestion:hover {
+	border-color: rgb(256, 172, 154);
+	border: 1px solid;
+	background-color: white;
+	color: rgb(256, 172, 154);
+}
+
+#gestion-testarea{
+   resize: none;
+}
 /************************/
 /***PAGE CONNECTION*****/
 /***********************/

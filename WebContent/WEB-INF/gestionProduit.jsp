@@ -25,12 +25,12 @@
 	<!--HEADER-->
 	<%@ include file="../views/header.jsp"%>
 	<!--MAIN -->
-		<%
+	<%
 		if (listeProduit != null) {
 	%>
-	
+
 	<img src="images/gestion-produit.jpeg" alt="Mamie clafoutis">
-	<h2 id="titre-gestion">Liste des produits presents </h2>
+	<h2 id="titre-gestion">Liste des produits presents</h2>
 
 	<h2 id="lien-ajoutProd">
 		<a href="ajoutNouveauDonnees?ajoutProduit=true">Ajouter un produit</a>
@@ -53,7 +53,7 @@
 				<td><a href="afficherProduit?idProduit=<%=produit.getId()%>"><img
 						id="img-gestion" alt="<%=produit.getNom()%>"
 						src="<%=produit.getImgUrl()%>"></a></td>
-				<td><%=produit.getPrix()%></td>
+				<td><%=produit.getPrix()%>$</td>
 				<td><%=produit.getCategorieProduit().getNomCategorie()%></td>
 				<td><a
 					href="gestionProduit?IDProduitModifie=<%=produit.getId()%>">modifier
@@ -71,75 +71,87 @@
 		<label>nom de produit :</label> <input type="text" name="nomProduit"
 			value="<%=unProduitAModfier.getNom()%>">
 		<div>
-			<img alt="<%=unProduitAModfier.getNom()%>"
+			<img id="img-gestion-produit" alt="<%=unProduitAModfier.getNom()%>"
 				src="<%=unProduitAModfier.getImgUrl()%>">
-		</div>
-		<label>Categorie : </label> <select>
-			<option><%=unProduitAModfier.getCategorieProduit().getNomCategorie()%></option>
-			<%
-				if (listeCategorie != null) {
-						for (CategorieProduit categorie : listeCategorie) {
-							if (!unProduitAModfier.getCategorieProduit().getNomCategorie()
-									.equals(categorie.getNomCategorie())) {
-			%>
-			<option>
-				<%
-					out.print(categorie.getNomCategorie());
-				%>
-			</option>
-			<%
-				}
-						}
-					}
-			%>
-
-		</select>
-		<textarea rows="5" cols="5"><%=unProduitAModfier.getDesc()%></textarea>
-		<h2>la Recette :</h2>
-		<table>
-			<tbody>
-				<tr>
-					<th>Ingredint</th>
-					<th>Qunatité en grammes (g)</th>
-				</tr>
-				<%
-					ArrayList<Ingredient> lesIngredients = unProduitAModfier.getSaRecette().getLesIngredient();
-				%>
-				<%
-					if (lesIngredients != null) {
-							for (Ingredient ing : lesIngredients) {
-				%>
-				<tr>
-					<td><select>
-							<option><%=ing.getNomIngredient()%></option>
+			<div id="section-recette">
+				<ul>
+					<li><label>Categorie : </label> <select>
+							<option><%=unProduitAModfier.getCategorieProduit().getNomCategorie()%></option>
 							<%
-								if (listeIngredient != null) {
-												for (Ingredient nomIng : listeIngredient) {
-													if (!ing.getNomIngredient().equals(nomIng.getNomIngredient())) {
+								if (listeCategorie != null) {
+										for (CategorieProduit categorie : listeCategorie) {
+											if (!unProduitAModfier.getCategorieProduit().getNomCategorie()
+													.equals(categorie.getNomCategorie())) {
 							%>
 							<option>
 								<%
-									out.print(nomIng.getNomIngredient());
+									out.print(categorie.getNomCategorie());
 								%>
 							</option>
 							<%
 								}
-												}
-											}
+										}
+									}
 							%>
-					</select></td>
-					<td><input type="text" name="qtyIngredient"
-						value="<%=ing.getQuantite()%>"></td>
-				</tr>
-				<%
-					}
-						}
-				%>
-			</tbody>
-		</table>
-		<input type="submit" name="retirerProduit" value="Retirer ce produit">
-		<input type="submit" name="enregistrerProduit"
-			value="Enregister les modifications">
+
+					</select></li>
+					<li><textarea id="gestion-testarea" rows="3" cols="20"><%=unProduitAModfier.getDesc()%></textarea>
+					</li>
+				</ul>
+
+				<h2>la Recette :</h2>
+				<table>
+					<tbody>
+						<tr>
+							<th>Ingredients</th>
+							<th>Quantité en grammes (g)</th>
+						</tr>
+						<%
+							ArrayList<Ingredient> lesIngredients = unProduitAModfier.getSaRecette().getLesIngredient();
+						%>
+						<%
+							if (lesIngredients != null) {
+									for (Ingredient ing : lesIngredients) {
+						%>
+						<tr>
+							<td><select>
+									<option><%=ing.getNomIngredient()%></option>
+									<%
+										if (listeIngredient != null) {
+														for (Ingredient nomIng : listeIngredient) {
+															if (!ing.getNomIngredient().equals(nomIng.getNomIngredient())) {
+									%>
+									<option>
+										<%
+											out.print(nomIng.getNomIngredient());
+										%>
+									</option>
+									<%
+										}
+														}
+													}
+									%>
+							</select></td>
+							<td><input type="text" name="qtyIngredient"
+								value="<%=ing.getQuantite()%>"></td>
+						</tr>
+						<%
+							}
+								}
+						%>
+					</tbody>
+				</table>
+				<ul>
+					<li><input class="bouton-gestion" type="submit"
+						name="retirerProduit" value="Retirer ce produit"></li>
+					<li><input class="bouton-gestion" type="submit"
+						name="enregistrerProduit" value="Enregister les modifications"></li>
+				</ul>
+
+			</div>
+
+		</div>
+
 	</form>
 	<%
 		}
