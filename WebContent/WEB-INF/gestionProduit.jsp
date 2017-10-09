@@ -1,3 +1,4 @@
+<%@page import="enitities.CategorieProduit"%>
 <%@page import="enitities.Ingredient"%>
 <%@page import="services.C"%>
 <%@page import="enitities.Produit"%>
@@ -5,8 +6,8 @@
 <%
 	ArrayList<Produit> listeProduit = (ArrayList<Produit>) request.getAttribute(C.listeProduits);
 	Produit unProduitAModfier = (Produit) request.getAttribute(C.produit);
-	ArrayList<String> listeIngredient = (ArrayList<String>) request.getAttribute(C.listeIngredients);
-	ArrayList<String> listeCategorie = (ArrayList<String>) request.getAttribute(C.listeCategorieProduit);
+	ArrayList<Ingredient> listeIngredient = (ArrayList<Ingredient>) request.getAttribute(C.listeIngredients);
+	ArrayList<CategorieProduit> listeCategorie = (ArrayList<CategorieProduit>) request.getAttribute(C.listeCategorieProduit);
 %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -63,10 +64,10 @@
 			<option><%=unProduitAModfier.getCategorieProduit().getNomCategorie()%></option>
 			<%
 				if (listeCategorie != null) {
-						for (String categorie : listeCategorie) {
-							if (!unProduitAModfier.getCategorieProduit().getNomCategorie().equals(categorie)) {
+						for (CategorieProduit categorie : listeCategorie) {
+							if (!unProduitAModfier.getCategorieProduit().getNomCategorie().equals(categorie.getNomCategorie())) {
 			%>
-			<option><%out.print(categorie);%></option>
+			<option><%out.print(categorie.getNomCategorie());%></option>
 			<%
 				}
 						}
@@ -94,10 +95,10 @@
 							<option><%=ing.getNomIngredient()%></option>
 							<%
 								if (listeIngredient != null) {
-												for (String nomIng : listeIngredient) {
-													if (!ing.getNomIngredient().equals(nomIng)) {
+												for (Ingredient nomIng : listeIngredient) {
+													if (!ing.getNomIngredient().equals(nomIng.getNomIngredient())) {
 							%>
-							<option><%out.print(nomIng);%></option>
+							<option><%out.print(nomIng.getNomIngredient());%></option>
 							<%
 								}
 												}

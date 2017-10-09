@@ -25,11 +25,11 @@ public class ManagerProduits {
 			+ "																																inner join `table recette` as re on co.`table recette_id_recette` = re.id_recette\r\n"
 			+ "                                                                                                                                inner join `table produit` as pro on pro.`table recette_id_recette` = re.id_recette where pro.id_produit = ?";
 
-	private static String queryGetAllCategorieProduit = "SELECT type FROM mamie_clafoutie.categorie";
+	private static String queryGetAllCategorieProduit = "SELECT * FROM mamie_clafoutie.categorie";
 
-	private static String queryGetAllIngredient = "SELECT description FROM mamie_clafoutie.`table ingredient`";
+	private static String queryGetAllIngredient = "SELECT * FROM mamie_clafoutie.`table ingredient`";
 	
-	private static String queryGetAllRecette = "SELECT description FROM mamie_clafoutie.`table recette`";
+	private static String queryGetAllRecette = "SELECT * FROM mamie_clafoutie.`table recette`";
 
 	public static ArrayList<Produit> getAllProduit() {
 		ArrayList<Produit> retour = null;
@@ -151,8 +151,8 @@ public class ManagerProduits {
 		return laRecette;
 	}
 
-	public static ArrayList<String> getAllCategorieProduit() {
-		ArrayList<String> listeDesCategories = null;
+	public static ArrayList<CategorieProduit> getAllCategorieProduit() {
+		ArrayList<CategorieProduit> listeDesCategories = null;
 
 		try {
 			ConnectionBDD.getConnection();
@@ -162,7 +162,9 @@ public class ManagerProduits {
 			if (result.isBeforeFirst()) {
 				listeDesCategories = new ArrayList<>();
 				while (result.next()) {
-					String categorie = result.getString("type");
+					CategorieProduit categorie =new CategorieProduit();
+					categorie.setIdCategorie(result.getInt(1));
+					categorie.setNomCategorie(result.getString(2));
 					listeDesCategories.add(categorie);
 				}
 
@@ -174,8 +176,8 @@ public class ManagerProduits {
 		return listeDesCategories;
 	}
 
-	public static ArrayList<String> getAllIngredient() {
-		ArrayList<String> listeIngredient = null;
+	public static ArrayList<Ingredient> getAllIngredient() {
+		ArrayList<Ingredient> listeIngredient = null;
 
 		try {
 			ConnectionBDD.getConnection();
@@ -185,7 +187,9 @@ public class ManagerProduits {
 			if (result.isBeforeFirst()) {
 				listeIngredient = new ArrayList<>();
 				while (result.next()) {
-					String ingredient = result.getString("description");
+					Ingredient ingredient = new Ingredient();
+					ingredient.setIdIngredient(result.getInt(1));
+					ingredient.setNomIngredient(result.getString(2));
 					listeIngredient.add(ingredient);
 				}
 
@@ -197,9 +201,9 @@ public class ManagerProduits {
 		return listeIngredient;
 	}
 
-	public static ArrayList<String> getAllRecette() {
+	public static ArrayList<Recette> getAllRecette() {
 
-		ArrayList<String> listeRecette = null;
+		ArrayList<Recette> listeRecette = null;
 
 		try {
 			ConnectionBDD.getConnection();
@@ -209,7 +213,9 @@ public class ManagerProduits {
 			if (result.isBeforeFirst()) {
 				listeRecette = new ArrayList<>();
 				while (result.next()) {
-					String Recette = result.getString("description");
+					Recette Recette =new Recette();
+				    Recette.setIdRecette(result.getInt(1));
+				    Recette.setNomRecette(result.getString(2));
 					listeRecette.add(Recette);
 				}
 
