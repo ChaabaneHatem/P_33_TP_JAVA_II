@@ -1,12 +1,14 @@
 
+<%@page import="enitities.Recette"%>
+<%@page import="enitities.CategorieProduit"%>
 <%@page import="services.C"%>
 <%@page import="java.util.ArrayList"%>
 <%
 	String ajoutProduit = request.getParameter("ajoutProduit");
 	String ajoutIngredient = request.getParameter("ajoutIngredient");
 	String ajoutRecette = request.getParameter("ajoutRecette");
-	ArrayList<String> listeCategorie = (ArrayList<String>) request.getAttribute(C.listeCategorieProduit);
-	ArrayList<String> listeRecette = (ArrayList<String>) request.getAttribute(C.listeRecette);
+	ArrayList<CategorieProduit> listeCategorie = (ArrayList<CategorieProduit>) request.getAttribute(C.listeCategorieProduit);
+	ArrayList<Recette> listeRecette = (ArrayList<Recette>) request.getAttribute(C.listeRecette);
 	
 %>
 
@@ -30,9 +32,9 @@
 		<label>La Categorie : </label> <select>
 			<%
 				if (listeCategorie != null) {
-						for (String categorie : listeCategorie) {
+						for (CategorieProduit categorie : listeCategorie) {
 			%>
-			<option><%=categorie%></option>
+			<option><%=categorie.getNomCategorie()%></option>
 			<%
 				}
 					}
@@ -45,9 +47,9 @@
 		<label>Le nom de Recette : </label> <select>
 			<%
 				if (listeRecette != null) {
-						for (String recette : listeRecette) {
+						for (Recette recette : listeRecette) {
 			%>
-			<option><%=recette%></option>
+			<option><%=recette.getNomRecette()%></option>
 			<%
 				}
 					}

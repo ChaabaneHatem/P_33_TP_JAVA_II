@@ -4,7 +4,10 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 
+import enitities.CategorieProduit;
+import enitities.Ingredient;
 import enitities.Produit;
+import enitities.Recette;
 import manager.ManagerProduits;
 import services.C;
 
@@ -21,17 +24,17 @@ public class ActionProduit {
 			request.setAttribute(C.produit, unProduit);
 		}
 		public static void afficherAllCategorie(HttpServletRequest request) {
-			ArrayList<String> listeCategorie = ManagerProduits.getAllCategorieProduit();
+			ArrayList<CategorieProduit> listeCategorie = ManagerProduits.getAllCategorieProduit();
 			request.setAttribute(C.listeCategorieProduit, listeCategorie);
 		}
 		
 		public static void afficherAllIngredient(HttpServletRequest request) {
-			ArrayList<String> listeIngredient = ManagerProduits.getAllIngredient();
+			ArrayList<Ingredient> listeIngredient = ManagerProduits.getAllIngredient();
 			request.setAttribute(C.listeIngredients, listeIngredient);
 		}
 		
 		public static void afficherAllRecette (HttpServletRequest request) {
-			ArrayList<String> listeRecette= ManagerProduits.getAllRecette();
+			ArrayList<Recette> listeRecette= ManagerProduits.getAllRecette();
 			request.setAttribute(C.listeRecette, listeRecette);
 		}
 }
