@@ -15,20 +15,28 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<link href="https://fonts.googleapis.com/css?family=Khula"
+	rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/main.css">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Gestion des Recettes</title>
 </head>
 <body>
-	<h2>Liste des Recettes presentes :</h2>
+	<!--HEADER-->
+	<%@ include file="../views/header.jsp"%>
+	<!--MAIN -->
+	<img src="images/gestion-recette.jpeg" alt="Mamie clafoutis">
+
+	<h2 id="titre-gestion-recette">Liste des Recettes presentes :</h2>
 	<%
 		if (listeRecette != null) {
 	%>
 
 	<h2>
-		<a href="ajoutNouveauDonnees?ajoutRecette=true">Ajouter une
-			Recette</a>
+		<a id="lien-gestion-recette"
+			href="ajoutNouveauDonnees?ajoutRecette=true">Ajouter une Recette</a>
 	</h2>
-	<table>
+	<table id="table-gestion-recette">
 		<tbody>
 			<tr>
 				<th>nom de Recette</th>
@@ -55,15 +63,15 @@
 	<%
 		} else if (uneRecette != null) {
 	%>
-	<form action="gestionRecette" method="post">
+	<form id="recette-modifier" action="gestionRecette" method="post">
 		<label>nom de Recette :</label> <input type="text" name="nomProduit"
 			value="<%=uneRecette.getNomRecette()%>">
 		<h4>les ingredients :</h4>
 		<table>
 			<tbody>
 				<tr>
-					<th>Ingredint</th>
-					<th>Qunatité en grammes (g)</th>
+					<th>Ingredient</th>
+					<th>Quantité en grammes (g)</th>
 				</tr>
 				<%
 					ArrayList<Ingredient> lesIngredients = uneRecette.getLesIngredient();
@@ -80,7 +88,11 @@
 												for (Ingredient nomIng : listeIngredient) {
 													if (!ing.getNomIngredient().equals(nomIng.getNomIngredient())) {
 							%>
-							<option><%out.print(nomIng.getNomIngredient());%></option>
+							<option>
+								<%
+									out.print(nomIng.getNomIngredient());
+								%>
+							</option>
 							<%
 								}
 												}
@@ -96,14 +108,19 @@
 				%>
 			</tbody>
 		</table>
-		<input type="submit" name="annulerModificationRecette" value="Annuler">
-		<input type="submit" name="enregistrerRecette"
-			value="Enregister les modifications">
+		<ul id=bouton-gestion-recette>
+			<li><input class="boutton-modif-recette" type="submit" name="annulerModificationRecette"
+				value="Annuler"></li>
+			<li><input class="boutton-modif-recette" type="submit" name="enregistrerRecette"
+				value="Enregister les modifications"></li>
+		</ul>
+
 	</form>
 
 	<%
 		}
 	%>
-
+	<!--FOOTER-->
+	<%@ include file="../views/footer.jsp"%>
 </body>
 </html>

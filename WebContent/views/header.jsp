@@ -6,6 +6,7 @@
 			<li><a href="index.jsp">Accueil</a></li>
 			<li><a href="afficherProduit">Produit</a></li>
 			<li><a href="#">Panier</a></li>
+			<li><a href="email.jsp">Contact</a></li>
 		</ul>
 	</div>
 </header>

@@ -16,7 +16,7 @@
 
 	<!--MAIN-->
 		<img src="images/patiss.jpeg" alt="Mamie clafoutis" >
-	<h1>Contactez-nous !</h1>
+	<h1 id="titre-contact">Contactez-nous !</h1>
 		<form action="SendMail" method="post">
         <table border="0" width="35%" align="center">
             <tr>

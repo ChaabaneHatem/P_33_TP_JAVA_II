@@ -68,38 +68,38 @@
 		} else if (unProduitAModfier != null) {
 	%>
 	<form action="gestionProduit" method="post">
-		<label>nom de produit :</label> <input type="text" name="nomProduit"
-			value="<%=unProduitAModfier.getNom()%>">
+		<div id="nom-produit">
+			<label>nom de produit :</label> <input type="text" name="nomProduit"
+				value="<%=unProduitAModfier.getNom()%>">
+		</div>
+
 		<div>
 			<img id="img-gestion-produit" alt="<%=unProduitAModfier.getNom()%>"
 				src="<%=unProduitAModfier.getImgUrl()%>">
 			<div id="section-recette">
-				<ul>
-					<li><label>Categorie : </label> <select>
-							<option><%=unProduitAModfier.getCategorieProduit().getNomCategorie()%></option>
-							<%
-								if (listeCategorie != null) {
-										for (CategorieProduit categorie : listeCategorie) {
-											if (!unProduitAModfier.getCategorieProduit().getNomCategorie()
-													.equals(categorie.getNomCategorie())) {
-							%>
-							<option>
-								<%
-									out.print(categorie.getNomCategorie());
-								%>
-							</option>
-							<%
+
+				<label>Categorie : </label> <select>
+					<option><%=unProduitAModfier.getCategorieProduit().getNomCategorie()%></option>
+					<%
+						if (listeCategorie != null) {
+								for (CategorieProduit categorie : listeCategorie) {
+									if (!unProduitAModfier.getCategorieProduit().getNomCategorie()
+											.equals(categorie.getNomCategorie())) {
+					%>
+					<option>
+						<%
+							out.print(categorie.getNomCategorie());
+						%>
+					</option>
+					<%
+						}
 								}
-										}
-									}
-							%>
+							}
+					%>
 
-					</select></li>
-					<li><textarea id="gestion-testarea" rows="3" cols="20"><%=unProduitAModfier.getDesc()%></textarea>
-					</li>
-				</ul>
-
-				<h2>la Recette :</h2>
+				</select>
+				<textarea id="gestion-textarea" rows="2" cols="20"><%=unProduitAModfier.getDesc()%></textarea>
+				<h2>la Recette </h2>
 				<table>
 					<tbody>
 						<tr>
@@ -141,7 +141,7 @@
 						%>
 					</tbody>
 				</table>
-				<ul>
+				<ul id="boutons-gestion-produits">
 					<li><input class="bouton-gestion" type="submit"
 						name="retirerProduit" value="Retirer ce produit"></li>
 					<li><input class="bouton-gestion" type="submit"

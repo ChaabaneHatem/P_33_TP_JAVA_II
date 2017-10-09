@@ -26,7 +26,7 @@ body {
 
 #nav-header ul li {
 	margin-right: 50px;
-	font-size: 28px;
+	font-size: 23px;
 	display: flex;
 	align-items: center;
 	margin: 15px 100px;
@@ -85,6 +85,15 @@ div#connect-div {
 	background-color: white;
 	color: rgb(256, 172, 154);
 }
+
+
+/***************************/
+/*******PAGE CONTACT*******/
+/*************************/
+#titre-contact{
+	text-align:center; 
+}
+
 
 /***************************/
 /********PAGE PRODUIT******/
@@ -176,7 +185,11 @@ div.descrip-produit p {
 	display: block;
 }
 
-/***PAGE Modification recette et ajouter/retirer produit***/
+/***PAGE GESTION PRODUIT***/
+#nom-produit {
+	margin: 15px;
+}
+
 #section-recette {
 	float: right;
 	margin-right: 200px;
@@ -187,14 +200,14 @@ div.descrip-produit p {
 	margin: 20px;
 }
 
-.bouton-gestion{
-    background-color: rgb(256, 172, 154);
-    border: none;
-    height: 47px;
-    width: 260px;
-    font-size: 18px;
-    margin-bottom: 5px;
-    color: white;
+.bouton-gestion {
+	background-color: rgb(256, 172, 154);
+	border: none;
+	height: 47px;
+	width: 260px;
+	font-size: 18px;
+	margin-bottom: 5px;
+	color: white;
 }
 
 .bouton-gestion:hover {
@@ -204,9 +217,121 @@ div.descrip-produit p {
 	color: rgb(256, 172, 154);
 }
 
-#gestion-testarea{
-   resize: none;
+#gestion-textarea {
+	resize: none;
+	position: relative;
+	top: 30px;
 }
+
+#boutons-gestion-produits {
+	padding: 0px;
+}
+
+/*****PAGE GESTION RECETTE*****/
+
+#table-gestion-recette {
+	border-collapse: collapse;
+	border-spacing: 0;
+	margin: 30px auto;
+}
+
+#table-gestion-recette td, th {
+	border: 1px solid;
+	border-color: rgb(256, 172, 154);
+}
+
+#table-gestion-recette a:hover{
+	color:rgb(256, 172, 154);
+}
+
+#table-gestion-recette tr th {
+	background-color: rgba(243, 239, 238, 0.6);
+	font-size: 20px;
+}
+
+#table-gestion-recette td {
+	text-align: center;
+	font-size: 20px;
+	width: 200px;
+}
+
+#titre-gestion-recette {
+	text-align: center;
+	margin-top: 40px;
+}
+
+#lien-gestion-recette {
+	text-align: center;
+	display: block;
+}
+
+/**********modifier recette*********/
+#recette-modifier {
+	margin: 30px auto;
+	display: table;
+}
+
+#bouton-gestion-recette {
+	padding: 0;
+}
+
+.boutton-modif-recette {
+	background-color: rgb(256, 172, 154);
+	border: none;
+	height: 50px;
+	width: 275px;
+	font-size: 20px;
+	margin-bottom: 10px;
+	color: white;
+}
+
+.boutton-modif-recette:hover {
+	border-color: rgb(256, 172, 154);
+	border: 1px solid;
+	background-color: white;
+	color: rgb(256, 172, 154);
+}
+
+/******************************/
+/*****GESTION INGREDIENT******/
+/****************************/
+
+
+#titre-ingredient{
+	text-align: center;
+}
+
+#lien-ingredient{
+	text-align: center;
+	display: block;
+}
+
+#table-ingredient {
+	border-collapse: collapse;
+	border-spacing: 0;
+	margin: 30px auto;
+}
+
+#table-ingredient td, th {
+	border: 1px solid;
+	border-color: rgb(256, 172, 154);
+}
+
+#table-ingredient tr th {
+	background-color: rgba(243, 239, 238, 0.6);
+	font-size: 20px;
+}
+
+#table-ingredient td {
+	text-align: center;
+	font-size: 20px;
+	width: 200px;
+}
+
+#table-ingredient a:hover{
+	color: rgb(256, 172, 154);
+}
+
 /************************/
 /***PAGE CONNECTION*****/
 /***********************/
