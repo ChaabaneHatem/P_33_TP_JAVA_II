@@ -152,6 +152,28 @@ div#connect-div {
 	background-color: white;
 	color: rgb(256, 172, 154);
 }
+/************************/
+/******Admin********/
+/***********************/
+#sous_menu_nav {
+	display: flex;
+	
+}
+#sous_menu_nav ul {
+	display: flex;
+    margin: 0 auto;
+    margin-left: 22%;
+}
+
+#sous_menu_nav ul li {
+	margin-right: 50px;
+    display: flex;
+    align-items: center;
+   
+}
+
+
+
 
 /*-------FOOTER--------*/
 footer {

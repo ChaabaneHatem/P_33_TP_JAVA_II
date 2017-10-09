@@ -32,15 +32,17 @@
 		</div>
 		<%
 			for (Produit produit : listeProduits) {
+				if (listeProduits != null) {
 		%>
 		<div class="produit_unit">
-			<h3><%=produit.getIdCategorie()%></h3>
+			<h3><%=produit.getCategorieProduit().getNomCategorie()%></h3>
 			<a href="afficherProduit?idProduit=<%=produit.getId()%>"><img
 				src="<%=produit.getImgUrl()%>" /></a>
 			<h3><%=produit.getNom()%></h3>
 			<h4><%=produit.getPrix()%></h4>
 		</div>
 		<%
+			}
 			}
 		%>
 

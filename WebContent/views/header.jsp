@@ -4,7 +4,7 @@
 	<div id="nav-header">
 		<ul>
 			<li><a href="index.jsp">Accueil</a></li>
-			<li><a href="#">Produit</a></li>
+			<li><a href="afficherProduit">Produit</a></li>
 			<li><a href="#">Panier</a></li>
 		</ul>
 	</div>

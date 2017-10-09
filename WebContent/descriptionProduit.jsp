@@ -22,6 +22,7 @@
 	<div>
 	<img alt="image_<%=produit.getNom()%>" src="<%=produit.getImgUrl()%>">
 	</div>
+	<h2><%=produit.getCategorieProduit().getNomCategorie()%></h2>
 	<h2><%=produit.getNom()%></h2>
 	<h3><%=produit.getDesc()%></h3>
 	<h4><%=produit.getPrix()%></h4>
