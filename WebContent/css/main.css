@@ -44,6 +44,7 @@ body {
 	border-top: 1px dotted;
 	border-color: rgb(256, 172, 154);
 	text-align: center;
+	border-color: rgb(256, 172, 154);
 }
 
 /***************************/
@@ -116,7 +117,64 @@ div#connect-div {
 /************************/
 /****PAGE DESCRIPTION***/
 /**********************/
+.image-desc {
+	margin: 50px;
+}
 
+div.descrip-produit {
+	float: right;
+	position: relative;
+	top: 100px;
+	right: 80px;
+}
+
+div.descrip-produit p {
+	width: 500px;
+}
+
+/************************/
+/*****GESTION PRODUIT***/
+/**********************/
+#titre-gestion {
+	text-align: center;
+}
+
+#table-gestion {
+	border-collapse: collapse;
+	border-spacing: 0;
+	margin: 30px auto;
+}
+
+#table-gestion td, th {
+	border: 1px solid;
+	border-color: rgb(256, 172, 154);
+}
+
+#table-gestion tr th {
+	background-color: rgba(243, 239, 238, 0.6);
+	font-size: 20px;
+}
+
+#table-gestion td {
+	text-align: center;
+	font-size: 20px;
+	width: 200px;
+}
+
+#img-gestion {
+	width: 90%;
+	margin: 20px auto;
+	display: block;
+}
+
+#table-gestion a:hover {
+	color: rgb(256, 172, 154);
+}
+
+#lien-ajoutProd {
+	text-align: center;
+	display: block;
+}
 
 /************************/
 /***PAGE CONNECTION*****/
@@ -162,23 +220,19 @@ div#connect-div {
 /***********************/
 #sous_menu_nav {
 	display: flex;
-	
 }
+
 #sous_menu_nav ul {
 	display: flex;
-    margin: 0 auto;
-    margin-left: 22%;
+	margin: 0 auto;
+	margin-left: 22%;
 }
 
 #sous_menu_nav ul li {
 	margin-right: 50px;
-    display: flex;
-    align-items: center;
-   
+	display: flex;
+	align-items: center;
 }
-
-
-
 
 /*-------FOOTER--------*/
 footer {

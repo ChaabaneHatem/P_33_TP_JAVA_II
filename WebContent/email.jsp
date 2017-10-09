@@ -8,7 +8,7 @@
 <link href="https://fonts.googleapis.com/css?family=Khula"
 	rel="stylesheet">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Contactez nous</title>
 </head>
 <body>
 	<!--HEADER-->

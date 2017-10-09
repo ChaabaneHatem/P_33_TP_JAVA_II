@@ -15,7 +15,7 @@
 <link href="https://fonts.googleapis.com/css?family=Khula"
 	rel="stylesheet">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>les produits</title>
+<title>Nos produits</title>
 </head>
 <body>
 
@@ -39,7 +39,8 @@
 			<a href="afficherProduit?idProduit=<%=produit.getId()%>"><img
 				src="<%=produit.getImgUrl()%>" /></a>
 			<h3><%=produit.getNom()%></h3>
-			<h4><%=produit.getPrix()%></h4>
+			<h4><%=produit.getPrix()%>$
+			</h4>
 		</div>
 		<%
 			}

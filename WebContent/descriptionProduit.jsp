@@ -9,10 +9,11 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+<link href="https://fonts.googleapis.com/css?family=Khula" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="css/main.css">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>une description d'un produit</title>
+<title>Description de nos produits</title>
 </head>
 <body>
 	<!--HEADER-->
@@ -20,8 +21,8 @@
 
 	<div id="wrapper_description_item">
 		<div>
-			<img alt="image_<%=produit.getNom()%>" src="<%=produit.getImgUrl()%>">
-			<div id="descrip-produit">
+			<img class="image-desc" alt="image_<%=produit.getNom()%>" src="<%=produit.getImgUrl()%>">
+			<div class="descrip-produit">
 				<h2><%=produit.getCategorieProduit().getNomCategorie()%></h2>
 				<h2><%=produit.getNom()%></h2>
 				<h3><%=produit.getDesc()%></h3>
@@ -32,7 +33,7 @@
 					reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
 					pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
 					culpa qui officia deserunt mollit anim id est laborum</p>
-				<h4><%=produit.getPrix()%></h4>
+				<h4><%=produit.getPrix()%>$</h4>
 			</div>
 		</div>
 	</div>

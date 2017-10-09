@@ -7,24 +7,35 @@
 	ArrayList<Produit> listeProduit = (ArrayList<Produit>) request.getAttribute(C.listeProduits);
 	Produit unProduitAModfier = (Produit) request.getAttribute(C.produit);
 	ArrayList<Ingredient> listeIngredient = (ArrayList<Ingredient>) request.getAttribute(C.listeIngredients);
-	ArrayList<CategorieProduit> listeCategorie = (ArrayList<CategorieProduit>) request.getAttribute(C.listeCategorieProduit);
+	ArrayList<CategorieProduit> listeCategorie = (ArrayList<CategorieProduit>) request
+			.getAttribute(C.listeCategorieProduit);
 %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<link href="https://fonts.googleapis.com/css?family=Khula"
+	rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/main.css">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Gestion produit</title>
 </head>
 <body>
-	<h2>Liste des produits presents :</h2>
-	<%
+	<!--HEADER-->
+	<%@ include file="../views/header.jsp"%>
+	<!--MAIN -->
+		<%
 		if (listeProduit != null) {
 	%>
 	
-	<h2><a href="ajoutNouveauDonnees?ajoutProduit=true">Ajouter un produit</a></h2>
-	<table>
+	<img src="images/gestion-produit.jpeg" alt="Mamie clafoutis">
+	<h2 id="titre-gestion">Liste des produits presents </h2>
+
+	<h2 id="lien-ajoutProd">
+		<a href="ajoutNouveauDonnees?ajoutProduit=true">Ajouter un produit</a>
+	</h2>
+	<table id="table-gestion">
 		<tbody>
 			<tr>
 				<th>nom</th>
@@ -37,9 +48,11 @@
 				for (Produit produit : listeProduit) {
 			%>
 			<tr>
-				<td><%=produit.getNom()%></td>
-				<td><img alt="<%=produit.getNom()%>"
-					src="<%=produit.getImgUrl()%>"></td>
+
+				<td><a href="afficherProduit?idProduit=<%=produit.getId()%>"><%=produit.getNom()%></a></td>
+				<td><a href="afficherProduit?idProduit=<%=produit.getId()%>"><img
+						id="img-gestion" alt="<%=produit.getNom()%>"
+						src="<%=produit.getImgUrl()%>"></a></td>
 				<td><%=produit.getPrix()%></td>
 				<td><%=produit.getCategorieProduit().getNomCategorie()%></td>
 				<td><a
@@ -57,17 +70,23 @@
 	<form action="gestionProduit" method="post">
 		<label>nom de produit :</label> <input type="text" name="nomProduit"
 			value="<%=unProduitAModfier.getNom()%>">
-			<div><img alt="<%=unProduitAModfier.getNom()%>" src="<%=unProduitAModfier.getImgUrl()%>"></div>
-			 <label>Categorie
-			: </label> 
-			<select>
+		<div>
+			<img alt="<%=unProduitAModfier.getNom()%>"
+				src="<%=unProduitAModfier.getImgUrl()%>">
+		</div>
+		<label>Categorie : </label> <select>
 			<option><%=unProduitAModfier.getCategorieProduit().getNomCategorie()%></option>
 			<%
 				if (listeCategorie != null) {
 						for (CategorieProduit categorie : listeCategorie) {
-							if (!unProduitAModfier.getCategorieProduit().getNomCategorie().equals(categorie.getNomCategorie())) {
+							if (!unProduitAModfier.getCategorieProduit().getNomCategorie()
+									.equals(categorie.getNomCategorie())) {
 			%>
-			<option><%out.print(categorie.getNomCategorie());%></option>
+			<option>
+				<%
+					out.print(categorie.getNomCategorie());
+				%>
+			</option>
 			<%
 				}
 						}
@@ -98,7 +117,11 @@
 												for (Ingredient nomIng : listeIngredient) {
 													if (!ing.getNomIngredient().equals(nomIng.getNomIngredient())) {
 							%>
-							<option><%out.print(nomIng.getNomIngredient());%></option>
+							<option>
+								<%
+									out.print(nomIng.getNomIngredient());
+								%>
+							</option>
 							<%
 								}
 												}
@@ -122,5 +145,7 @@
 		}
 	%>
 
+	<!--FOOTER-->
+	<%@ include file="../views/footer.jsp"%>
 </body>
 </html>

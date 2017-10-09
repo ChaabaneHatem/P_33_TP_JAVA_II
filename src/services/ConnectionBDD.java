@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class ConnectionBDD {
-	private static final String url = "jdbc:mysql://localhost:3306/mamie_clafoutie";
+	private static final String url = "jdbc:mysql://localhost:3306/mamie_clafoutie?useSSL=false";
 	private static final String identifiant = "root";
 	private static final String pwd = "abc123...";
 	private static Connection connection = null;
