@@ -25,6 +25,8 @@
 	<!--HEADER-->
 	<%@ include file="../views/header.jsp"%>
 	<!--MAIN -->
+		<%@ include file="../views/sous-menu.jsp"%>
+	
 	<%
 		if (listeProduit != null) {
 	%>
@@ -67,9 +69,12 @@
 	<%
 		} else if (unProduitAModfier != null) {
 	%>
-	<form action="gestionProduit" method="post">
+
+	<form id="form-gestion-produit" action="gestionProduit" method="post">
+		<h1 id="titre-recette">La recette</h1>
+	
 		<div id="nom-produit">
-			<label>nom de produit :</label> <input type="text" name="nomProduit"
+			<label>Nom du produit </label> <input type="text" name="nomProduit"
 				value="<%=unProduitAModfier.getNom()%>">
 		</div>
 
@@ -77,32 +82,32 @@
 			<img id="img-gestion-produit" alt="<%=unProduitAModfier.getNom()%>"
 				src="<%=unProduitAModfier.getImgUrl()%>">
 			<div id="section-recette">
-
-				<label>Categorie : </label> <select>
-					<option><%=unProduitAModfier.getCategorieProduit().getNomCategorie()%></option>
-					<%
-						if (listeCategorie != null) {
-								for (CategorieProduit categorie : listeCategorie) {
-									if (!unProduitAModfier.getCategorieProduit().getNomCategorie()
-											.equals(categorie.getNomCategorie())) {
-					%>
-					<option>
+				<div id="recette-categorie">
+					<label>Categorie : </label> <select>
+						<option><%=unProduitAModfier.getCategorieProduit().getNomCategorie()%></option>
 						<%
-							out.print(categorie.getNomCategorie());
+							if (listeCategorie != null) {
+									for (CategorieProduit categorie : listeCategorie) {
+										if (!unProduitAModfier.getCategorieProduit().getNomCategorie()
+												.equals(categorie.getNomCategorie())) {
 						%>
-					</option>
-					<%
-						}
-								}
+						<option>
+							<%
+								out.print(categorie.getNomCategorie());
+							%>
+						</option>
+						<%
 							}
-					%>
+									}
+								}
+						%>
 
-				</select>
-				<textarea id="gestion-textarea" rows="2" cols="20"><%=unProduitAModfier.getDesc()%></textarea>
-				<h2>la Recette </h2>
+					</select>
+					<textarea id="gestion-textarea" rows="2" cols="20"><%=unProduitAModfier.getDesc()%></textarea>
+				</div>
 				<table>
 					<tbody>
-						<tr>
+						<tr id="sous-titre">
 							<th>Ingredients</th>
 							<th>Quantité en grammes (g)</th>
 						</tr>

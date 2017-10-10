@@ -20,6 +20,8 @@
 	<!--HEADER-->
 	<%@ include file="../views/header.jsp"%>
 	<!--MAIN -->
+			<%@ include file="../views/sous-menu.jsp"%>
+
 	<img src="images/gestion-ingredrient.jpeg" alt="Mamie clafoutis">
 
 	<h2 id="titre-ingredient">Liste des ingredients presents :</h2>

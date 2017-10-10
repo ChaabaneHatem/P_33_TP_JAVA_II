@@ -21,46 +21,79 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<link href="https://fonts.googleapis.com/css?family=Khula"
+	rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/main.css">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Ajout des données</title>
 </head>
 <body>
+	<!--HEADER  -->
+	<%@ include file="../views/header.jsp"%>
+	<!--MAIN -->
+
+	<%@ include file="../views/sous-menu.jsp"%>
+	
 	<%
 		if (ajoutProduit != null) {
 	%>
-	<h1>Ajout d'un nouveau produit</h1>
-	<form action="ajoutNouveauDonnees" method="post">
-		<label>Nom de produit :</label> <input type="text" name="nomProduit">
-		<label>La Categorie : </label> <select>
-			<%
-				if (listeCategorie != null) {
-						for (CategorieProduit categorie : listeCategorie) {
-			%>
-			<option><%=categorie.getNomCategorie()%></option>
-			<%
-				}
-					}
-			%>
+				<img src="images/ajout-produit.jpeg" alt="Mamie clafoutis" >
+	
+	<h1 id="titre-ajout">Ajoutez un nouveau produit</h1>
+	<form id="form-ajout-produit" action="ajoutNouveauDonnees" method="post">
 
-		</select>
+		<table border="0" width="35%" align="center">
+			<tr>
+				<td width="50%">Nom de produit</td>
+				<td><input type="text" name="nomProduit"></td>
+			</tr>
+			<tr>
+				<td>Nom de produit</td>
+				<td><input type="text" name="nomProduit"></td>
+			</tr>
+			<tr>
+				<td>La Categorie</td>
+				<td><select>
+						<%
+							if (listeCategorie != null) {
+									for (CategorieProduit categorie : listeCategorie) {
+						%>
+						<option><%=categorie.getNomCategorie()%></option>
+						<%
+							}
+								}
+						%>
 
-		<textarea rows="5" cols="5">Description de produit </textarea>
+				</select></td>
+			</tr>
+			<tr>
+				<td><textarea rows="5" cols="5">Description de produit </textarea>
+				</td>
+			</tr>
+			<tr>
+				<td><label>Le nom de Recette </label></td>
+				<td><select>
+						<%
+							if (listeRecette != null) {
+									for (Recette recette : listeRecette) {
+						%>
+						<option><%=recette.getNomRecette()%></option>
+						<%
+							}
+								}
+						%>
 
-		<label>Le nom de Recette : </label> <select>
-			<%
-				if (listeRecette != null) {
-						for (Recette recette : listeRecette) {
-			%>
-			<option><%=recette.getNomRecette()%></option>
-			<%
-				}
-					}
-			%>
-
-		</select> <input type="submit" name="annulerAjoutProduit" value="Annuler">
-		<input type="submit" name="AjouterCeProduit"
-			value="Ajouter ce produit">
-
+				</select></td>
+			</tr>
+			<tr>
+				<td><input type="submit" name="annulerAjoutProduit"
+					value="Annuler"></td>
+			</tr>
+			<tr>
+				<td><input type="submit" name="AjouterCeProduit"
+					value="Ajouter ce produit"></td>
+			</tr>
+		</table>
 	</form>
 
 	<%
@@ -96,11 +129,13 @@
 							<%
 								if (listeIngredient != null) {
 											for (Ingredient Ing : listeIngredient) {
-												
 							%>
-							<option value="<%out.print(Ing.getNomIngredient());%>"><%out.print(Ing.getNomIngredient());%></option>
+							<option value="<%out.print(Ing.getNomIngredient());%>">
+								<%
+									out.print(Ing.getNomIngredient());
+								%>
+							</option>
 							<%
-							
 								}
 										}
 							%>
@@ -114,11 +149,13 @@
 			</tbody>
 		</table>
 		<input type="submit" name="annulerAjoutRecette" value="Annuler">
-		<input	type="submit" name="AjouterCetteRecette" value="Ajouter Recette">
+		<input type="submit" name="AjouterCetteRecette"
+			value="Ajouter Recette">
 	</form>
 	<%
 		}
 	%>
+	<%@ include file="../views/footer.jsp"%>
 </body>
 </html>
 

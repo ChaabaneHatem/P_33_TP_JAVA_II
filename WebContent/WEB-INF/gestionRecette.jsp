@@ -25,6 +25,8 @@
 	<!--HEADER-->
 	<%@ include file="../views/header.jsp"%>
 	<!--MAIN -->
+			<%@ include file="../views/sous-menu.jsp"%>
+	
 	<img src="images/gestion-recette.jpeg" alt="Mamie clafoutis">
 
 	<h2 id="titre-gestion-recette">Liste des Recettes presentes :</h2>
