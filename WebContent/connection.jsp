@@ -15,12 +15,12 @@
 
 	<h1 id="titre-connection">Connectez-vous !</h1>
 
-	<form action="" method="post" id="form-connect">
+	<form action="redirectionDesPages" method="post" id="form-connect">
 		<ul>
 			<li><label for="username">Nom d'utilisateur</label> <input
 				type="text" name="username"></li>
-			<li><label for="pwd">Mot de passe</label> <input type="text"
-				name="username"></li>
+			<li><label for="password">Mot de passe</label> <input type="password"
+				name="password"></li>
 		</ul>
 		<div id="form-bouton">
 			<a href="#"><button id="connect-form">Connectez-vous</button></a>

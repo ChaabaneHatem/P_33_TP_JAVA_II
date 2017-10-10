@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import utils.Autentification;
+
 /**
  * Servlet implementation class RedirectionDesPages
  */
@@ -26,9 +28,6 @@ public class RedirectionDesPages extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		request.getRequestDispatcher("WEB-INF/admin.jsp").forward(request, response);
-	
 	
 	}
 
@@ -36,8 +35,18 @@ public class RedirectionDesPages extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+
+		if(request.getParameter("username") != null && request.getParameter("password") != null) {
+			String username = request.getParameter("username");
+			String password = request.getParameter("password");
+			if(Autentification.Authentifiaction(username, password).equals("Admin")) {
+				request.getRequestDispatcher("WEB-INF/admin.jsp").forward(request, response);
+			}
+			
+			
+		}
+		
+		
 	}
 
 }

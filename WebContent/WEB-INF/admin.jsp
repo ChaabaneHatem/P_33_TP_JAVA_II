@@ -11,33 +11,9 @@
 </head>
 <body>
 	<!--HEADER-->
-	<header> <img id="logo" src="images/mamieclafoutis_logo.png"
-		alt="Mamie clafoutis">
-	<div id="nav-header">
-		<ul>
-			<li><a href="index.jsp">Accueil</a></li>
-			<li><a href="afficherProduit">Produit</a></li>
-			<li><a href="admin.jsp">Admin</a></li>
-		</ul>
-	</div>
-	</header>
-	<main> <nav id="sous_menu_nav">
-	<ul>
-		<li><a href="gestionProduit">Gestion de produit</a></li>
-		<li><a href="gestionRecette">Gestion de Recette</a></li>
-		<li><a href="gestionIngredient">Gestion de ingredient</a></li>
-		<li><a href="gestionEmploye">Gestion d'employé</a></li>
-	</ul>
-	</nav> 
-	
-	
-	
-	
-	
-	
-	</main>
+	<%@ include file="../views/header.jsp"%>
 
-
+	<%@ include file="../views/sous-menu.jsp"%>
 
 	<!--FOOTER-->
 	<%@ include file="../views/footer.jsp"%>

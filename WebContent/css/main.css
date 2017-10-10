@@ -47,6 +47,16 @@ body {
 	border-color: rgb(256, 172, 154);
 }
 
+#sous_menu_nav {
+	border-bottom: 1px dotted;
+	border-color: rgb(256, 172, 154);
+	width: 100%;
+	font-size: 17px;
+}
+
+#sous_menu_nav a:hover {
+	color: rgb(256, 172, 154);
+}
 /***************************/
 /*********ACCUEIL***********/
 /***************************/
@@ -86,14 +96,12 @@ div#connect-div {
 	color: rgb(256, 172, 154);
 }
 
-
 /***************************/
 /*******PAGE CONTACT*******/
 /*************************/
-#titre-contact{
-	text-align:center; 
+#titre-contact {
+	text-align: center;
 }
-
 
 /***************************/
 /********PAGE PRODUIT******/
@@ -144,8 +152,22 @@ div.descrip-produit p {
 /************************/
 /*****GESTION PRODUIT***/
 /**********************/
+#titre-recette {
+	text-align: center;
+	margin-top: 10px;
+	margin-bottom: 0;
+}
+
+#recette-categorie {
+	margin-bottom: 20px;
+}
+
 #titre-gestion {
 	text-align: center;
+}
+
+#sous-titre th {
+	border: none;
 }
 
 #table-gestion {
@@ -170,6 +192,26 @@ div.descrip-produit p {
 	width: 200px;
 }
 
+#form-gestion-produit input {
+	border-radius: 10px;
+	border: 1px solid;
+	border-color: rgb(256, 172, 154);
+	text-align: center;
+}
+
+#form-gestion-produit select {
+	border-radius: 10px;
+	border: 1px solid;
+	border-color: rgb(256, 172, 154);
+	text-align: center;
+}
+
+#form-gestion-produit textarea {
+	border-radius: 10px;
+	border: 1px solid;
+	border-color: rgb(256, 172, 154);
+}
+
 #img-gestion {
 	width: 90%;
 	margin: 20px auto;
@@ -187,27 +229,31 @@ div.descrip-produit p {
 
 /***PAGE GESTION PRODUIT***/
 #nom-produit {
-	margin: 15px;
+	margin: 0px 0 25px 100px;
 }
 
 #section-recette {
 	float: right;
-	margin-right: 200px;
+	margin-right: 250px;
+}
+
+#form-gestion-produit {
+	font-size: 23px;
 }
 
 #img-gestion-produit {
-	width: 40%;
-	margin: 20px;
+	width: 30%;
+	margin: 20px 0 50px 100px;
 }
 
 .bouton-gestion {
 	background-color: rgb(256, 172, 154);
-	border: none;
 	height: 47px;
-	width: 260px;
+	width: 290px;
 	font-size: 18px;
-	margin-bottom: 5px;
 	color: white;
+	margin: 5px auto;
+	text-align: center;
 }
 
 .bouton-gestion:hover {
@@ -227,8 +273,34 @@ div.descrip-produit p {
 	padding: 0px;
 }
 
-/*****PAGE GESTION RECETTE*****/
+/***PAGE AJOUTER PRODUIT***/
 
+#form-ajout-produit input {
+	border-radius: 10px;
+	border: 1px solid;
+	border-color: rgb(256, 172, 154);
+	text-align: center;
+}
+
+#form-ajout-produit select {
+	border-radius: 10px;
+	border: 1px solid;
+	border-color: rgb(256, 172, 154);
+	text-align: center;
+}
+
+#form-ajout-produit textarea {
+	border-radius: 10px;
+	border: 1px solid;
+	border-color: rgb(256, 172, 154);
+}
+
+#titre-ajout{
+	text-align: center;
+}
+
+
+/*****PAGE GESTION RECETTE*****/
 #table-gestion-recette {
 	border-collapse: collapse;
 	border-spacing: 0;
@@ -240,8 +312,8 @@ div.descrip-produit p {
 	border-color: rgb(256, 172, 154);
 }
 
-#table-gestion-recette a:hover{
-	color:rgb(256, 172, 154);
+#table-gestion-recette a:hover {
+	color: rgb(256, 172, 154);
 }
 
 #table-gestion-recette tr th {
@@ -295,13 +367,11 @@ div.descrip-produit p {
 /******************************/
 /*****GESTION INGREDIENT******/
 /****************************/
-
-
-#titre-ingredient{
+#titre-ingredient {
 	text-align: center;
 }
 
-#lien-ingredient{
+#lien-ingredient {
 	text-align: center;
 	display: block;
 }
@@ -328,7 +398,7 @@ div.descrip-produit p {
 	width: 200px;
 }
 
-#table-ingredient a:hover{
+#table-ingredient a:hover {
 	color: rgb(256, 172, 154);
 }
 
