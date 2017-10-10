@@ -34,7 +34,8 @@ public class ManagerProduits {
 	private static String queryGetRecetteById = "SELECT re.id_recette, re.description, ing.id_ingredient, ing.description, co.quantite FROM mamie_clafoutie.`table recette` as re inner join `table compose` co on co.`table recette_id_recette` = re.id_recette\r\n" + 
 			"																																									  inner join `table ingredient`  ing on co.`table ingredient_id_ingredient` = ing.id_ingredient\r\n" + 
 			"																																										where id_recette = ?";
-	
+	private static String queryDeleteVente = "Delete from `table vente` where `table produit_id_produit`= ?";
+	private static String queryDeleteProduit = "Delete from `table produit` where id_produit = ?";
 	
 
 	public static ArrayList<Produit> getAllProduit() {
@@ -105,6 +106,29 @@ public class ManagerProduits {
 
 		return retour;
 	}
+	
+	
+	public static boolean DeleteProduit(int idProduit) {
+		int nbLigne = 0;
+
+		try {
+			ConnectionBDD.getConnection();
+			PreparedStatement pstatment = ConnectionBDD.getPs(queryDeleteVente);
+			pstatment.setInt(1, idProduit);
+			nbLigne = pstatment.executeUpdate();
+			PreparedStatement pstatment1 = ConnectionBDD.getPs(queryDeleteProduit);
+			pstatment1.setInt(1, idProduit);
+			nbLigne = pstatment1.executeUpdate();
+
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+
+
+		return nbLigne > 0;
+	}
+	
 
 	public static String getNomCategorie(int idCategorie) {
 		String retour = null;

@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import action.ActionIngredient;
 import action.ActionProduit;
 
 /**
@@ -41,8 +42,19 @@ public class AjoutNouveauDonnees extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+
+		if(request.getParameter("annulerAjoutIngredient") != null) {
+			ActionProduit.afficherAllIngredient(request);
+			request.getRequestDispatcher("WEB-INF/gestionIngredient.jsp").forward(request, response);
+		} else if(request.getParameter("AjouterCeIngredient") !=null) {
+			String nomIngredient = request.getParameter("nomIngredient");
+			ActionIngredient.AddIngredient(nomIngredient);
+			ActionProduit.afficherAllIngredient(request);
+			request.getRequestDispatcher("WEB-INF/gestionIngredient.jsp").forward(request, response);
+		}
+	
+	
+	
 	}
 
 }

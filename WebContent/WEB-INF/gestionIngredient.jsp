@@ -43,7 +43,7 @@
 			<tr>
 				<td><%=ing.getNomIngredient()%></td>
 				<td><a
-					href="retirerDonnees?idIngredient=<%=ing.getIdIngredient()%>?retirerIngredient=true">retirer
+					href="retierDonnees?idIngredient=<%=ing.getIdIngredient()%>&retirerIngredient=true">retirer
 						ingredient</a></td>
 			</tr>
 			<%

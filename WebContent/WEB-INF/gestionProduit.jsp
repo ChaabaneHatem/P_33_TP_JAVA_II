@@ -87,9 +87,7 @@
 											.equals(categorie.getNomCategorie())) {
 					%>
 					<option>
-						<%
-							out.print(categorie.getNomCategorie());
-						%>
+						<%out.print(categorie.getNomCategorie());%>
 					</option>
 					<%
 						}
@@ -99,7 +97,7 @@
 
 				</select>
 				<textarea id="gestion-textarea" rows="2" cols="20"><%=unProduitAModfier.getDesc()%></textarea>
-				<h2>la Recette </h2>
+				<h2>la Recette</h2>
 				<table>
 					<tbody>
 						<tr>
@@ -122,9 +120,7 @@
 															if (!ing.getNomIngredient().equals(nomIng.getNomIngredient())) {
 									%>
 									<option>
-										<%
-											out.print(nomIng.getNomIngredient());
-										%>
+										<%out.print(nomIng.getNomIngredient());%>
 									</option>
 									<%
 										}
@@ -141,6 +137,7 @@
 						%>
 					</tbody>
 				</table>
+				<input type="hidden" name="idProduit" value="<%=unProduitAModfier.getId()%>">
 				<ul id="boutons-gestion-produits">
 					<li><input class="bouton-gestion" type="submit"
 						name="retirerProduit" value="Retirer ce produit"></li>

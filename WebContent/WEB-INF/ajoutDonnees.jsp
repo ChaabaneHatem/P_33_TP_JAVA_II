@@ -79,7 +79,7 @@
 		} else if (ajoutRecette != null) {
 	%>
 	<h1>Ajout d'une nouvelle recettet</h1>
-	<form action="ajoutNouveauDonnees" method="get">
+	<form action="ajoutNouveauDonnees" method="post">
 		<label>Nom de Recette :</label> <input type="text" name="nomRecette">
 		<h3>Les ingredients :</h3>
 		<table>
@@ -89,18 +89,16 @@
 					<th>Quantité</th>
 				</tr>
 				<%
-					for (int i = 0; i < 10; i++) {
+					for (int i = 1; i <= 10; i++) {
 				%>
 				<tr>
 					<td><select name="nomIngredient<%=i%>">
 							<%
 								if (listeIngredient != null) {
 											for (Ingredient Ing : listeIngredient) {
-												
 							%>
 							<option value="<%out.print(Ing.getNomIngredient());%>"><%out.print(Ing.getNomIngredient());%></option>
 							<%
-							
 								}
 										}
 							%>
@@ -114,7 +112,8 @@
 			</tbody>
 		</table>
 		<input type="submit" name="annulerAjoutRecette" value="Annuler">
-		<input	type="submit" name="AjouterCetteRecette" value="Ajouter Recette">
+		<input type="submit" name="AjouterCetteRecette"
+			value="Ajouter Recette">
 	</form>
 	<%
 		}

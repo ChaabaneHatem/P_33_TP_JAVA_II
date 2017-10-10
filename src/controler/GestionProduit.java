@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.ActionProduit;
+import manager.ManagerProduits;
 
 /**
  * Servlet implementation class GestionProduit
@@ -16,20 +17,22 @@ import action.ActionProduit;
 @WebServlet("/gestionProduit")
 public class GestionProduit extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public GestionProduit() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		if(request.getParameter("IDProduitModifie") == null) {
+	public GestionProduit() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		if (request.getParameter("IDProduitModifie") == null) {
 			ActionProduit.afficherAllProduit(request);
 		} else {
 			int idProduit = Integer.parseInt(request.getParameter("IDProduitModifie"));
@@ -38,19 +41,38 @@ public class GestionProduit extends HttpServlet {
 			ActionProduit.afficherAllIngredient(request);
 		}
 		request.getRequestDispatcher("WEB-INF/gestionProduit.jsp").forward(request, response);
-	
-	
+
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		
-	
-	
-	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		if (request.getParameter("retirerProduit") != null) {
+			if (request.getParameter("idProduit") != null) {
+				int idProduit = Integer.parseInt(request.getParameter("idProduit"));
+				ActionProduit.deleteProduitById(idProduit);
+				ActionProduit.afficherAllProduit(request);
+				request.getRequestDispatcher("WEB-INF/gestionProduit.jsp").forward(request, response);
+			}
+		}
+
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

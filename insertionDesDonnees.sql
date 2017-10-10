@@ -1,0 +1,13 @@
+INSERT INTO `categorie` VALUES (1,'Pain'),(2,'Viennoiserie'),(3,'Patisserie');
+INSERT INTO `table fonction employe` VALUES (1,'Validation des commandes','Admin'),(2,'Prise des commandes','Directrice'),(3,'Inventaire','Vendeur');
+INSERT INTO `table ingredient` VALUES (1,'Farine'),(2,'Eau'),(3,'Sel'),(4,'Oeuf'),(5,'Lait'),(6,'Sucre'),(7,'Pate'),(8,'Seigle'),(9,'Levain'),(10,'Chocolat'),(11,'Abricot'),(12,'Raisin'),(13,'Vanille');
+INSERT INTO `table recette` VALUES (1,'Baguette'),(2,'Pain de campagne'),(3,'Froment'),(4,'Roll'),(5,'Chocolatine'),(6,'Abricotine'),(7,'Pain aux raisin'),(8,'Croissant'),(9,'Opera'),(10,'Shortcake aux fraises'),(11,'Suisse'),(12,'Royal');
+INSERT INTO `table compose` VALUES (100,1,1),(30,1,2),(40,1,3),(20,2,1),(30,2,2),(60,2,3),(60,2,8),(50,3,1),(50,3,2),(40,3,3),(70,3,9),(50,4,1),(30,4,2),(30,4,3),(20,5,7),(60,5,10),(20,6,7),(70,6,11),(50,7,7),(80,7,12),(70,8,7),(90,9,1),(60,9,4),(70,9,5),(70,9,6),(60,9,10),(60,10,1),(70,10,4),(60,10,5),(60,10,6),(50,10,13),(70,11,1),(70,11,4),(40,11,5),(80,11,6),(60,11,10),(40,12,5),(40,12,6),(70,12,10);
+INSERT INTO `table produit` VALUES (29,'Baguette',2.6,'Farine blanche','images/baguette.jpg',1,1),(30,'Pain de campagne',3.45,'Farine blanche et seigle','images/pain-campagne.jpg',1,2),(31,'Froment',3.45,'Farine blanche et levain','images/froment.jpg',1,3),(32,'Roll',0.4,'Farine blanche','images/roll.jpg',1,4),(33,'Chocolatine',2.75,'Pate feuilletee','images/chocolatine.jpg',2,5),(34,'Croissant aux amandes',2.75,'Pate feuilletee avec pate damande','images/croissant-amandes.jpg',2,6),(35,'Pain aux raisins',2.5,'Pate feuilletee et raisins','images/pain-raisins.jpg',2,7),(36,'Croissant',2.3,'Pate feuilletee et beurre','images/croissant.jpg',2,8),(37,'Foret noire',28.75,'Eponge chocolat avec creme chantilly','images/foret-noire.jpg',3,9),(38,'Choco framboise',32.75,'Mousse au chocolat avec gelee aux framboises','images/choco-framboise.jpg',3,10),(39,'Suisse',28.75,'Eponge au chocolat avec creme chantilly','images/suisse.jpg',3,11),(40,'Royal',28.75,'Mousse au  chocolat avec une base pralinee','images/royal.jpg',3,12);
+INSERT INTO `table employe` VALUES (id_emp,'Hatem','Chabaan','514-222-2222','244 rue olympia',1,'admin','aaa','hatem@gmail.com',true),(id_emp,'Tania','El-Asmar','514-342-3456','543 rue olympia',2,'directrice', 'tania', 'tania@gmail.com', true),(3,'Rafael','Rubio','514-234-5435','898 rue olympia',3, 'raf', 'barca2017', 'raf@gmail.com', true);
+INSERT INTO `table commande` VALUES (1,'2017-10-03',3),(2,'2017-10-02',3);
+INSERT INTO `ligne de commande` VALUES (2,30,1),(4,33,1),(5,35,2);
+INSERT INTO `table vente` VALUES (1,'60',22,'2017-10-02','jour',3,29),(4,'20',5,'2017-10-04','jour',3,30);
+
+
+

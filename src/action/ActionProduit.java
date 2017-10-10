@@ -10,7 +10,6 @@ import enitities.Produit;
 import enitities.Recette;
 import manager.ManagerProduits;
 import services.C;
-
 public class ActionProduit {
 
 	//les methodes statiques 
@@ -23,6 +22,11 @@ public class ActionProduit {
 			Produit unProduit = ManagerProduits.getProduitById(idProduit);
 			request.setAttribute(C.produit, unProduit);
 		}
+		
+		public static void deleteProduitById (int idProduit) {
+			ManagerProduits.DeleteProduit(idProduit);
+		}
+		
 		public static void afficherAllCategorie(HttpServletRequest request) {
 			ArrayList<CategorieProduit> listeCategorie = ManagerProduits.getAllCategorieProduit();
 			request.setAttribute(C.listeCategorieProduit, listeCategorie);
