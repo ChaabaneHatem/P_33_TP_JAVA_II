@@ -34,9 +34,10 @@ public class ActionPanier extends HttpServlet {
 			ManagerPanier.getAllProduitPanier(request);
 			request.getRequestDispatcher("WEB-INF/panier.jsp").forward(request, response);
 
-		}
+		} else {
 
-		response.sendRedirect("afficherProduit");
+			response.sendRedirect("afficherProduit");
+		}
 
 	}
 
@@ -59,9 +60,32 @@ public class ActionPanier extends HttpServlet {
 			ManagerPanier.addToPanier(request, idPorduit, qtyProduit);
 			ManagerPanier.afficherPanierConsole(request);
 			System.out.println("" + ManagerPanier.getNbArticle(request));
-
+			doGet(request, response);
 		}
-		doGet(request, response);
+
+		else if (request.getParameter("add_one") != null) {
+			if (request.getParameter("idProduit") != null) {
+				int idProduit = Integer.parseInt(request.getParameter("idProduit"));
+				ManagerPanier.addToPanier(request, idProduit, 1);
+			}
+			response.sendRedirect("actionPanier?afficherPanier=true");
+		}
+
+		else if (request.getParameter("delete_one") != null) {
+			if (request.getParameter("idProduit") != null) {
+				int idProduit = Integer.parseInt(request.getParameter("idProduit"));
+				ManagerPanier.removeFromPanier(request, idProduit, 1);
+			}
+			response.sendRedirect("actionPanier?afficherPanier=true");
+		}
+
+		else if (request.getParameter("delete_item") != null) {
+			if (request.getParameter("idProduit") != null) {
+				int idProduit = Integer.parseInt(request.getParameter("idProduit"));
+				ManagerPanier.removeFromPanier(request, idProduit, 0);
+			}
+			response.sendRedirect("actionPanier?afficherPanier=true");
+		}
 
 	}
 

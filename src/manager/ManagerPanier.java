@@ -39,11 +39,14 @@ public class ManagerPanier {
 				"panier");
 
 		if (panier != null) {
-			if (!panier.containsKey(ldc.getIdProduit())) {
+			if (panier.containsKey(ldc.getIdProduit())) {
 				LigneDeCommande newldc = panier.get(ldc.getIdProduit());
+				newldc.setQtyProduit(newldc.getQtyProduit() - ldc.getQtyProduit());
 				// if la qty a retirer est egale a zero je set la qty de ceproduit a zero
+				if (ldc.getQtyProduit() == 0) {
+					newldc.setQtyProduit(0);
+				}
 
-				newldc.setQtyProduit(ldc.getQtyProduit() - ldc.getQtyProduit());
 				if (newldc.getQtyProduit() > 0) {
 					panier.replace(ldc.getIdProduit(), newldc);
 				} else {
@@ -117,6 +120,5 @@ public class ManagerPanier {
 
 		return listeProduitPanier;
 	}
-	
 
 }

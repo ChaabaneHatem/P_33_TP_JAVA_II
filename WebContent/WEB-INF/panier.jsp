@@ -27,7 +27,11 @@
 	<!--HEADER-->
 	<%@ include file="../views/header.jsp"%>
 	<main> <%
-	double totalAchat = 0;
+ 	if (ManagerPanier.getNbArticle(request) == 0) {
+ 		out.print("<h2>Votre panier est vide ...</h2>");
+ 	}
+ %> <%
+ 	double totalAchat = 0;
  	if (listeProduitPanier != null) {
  		for (Produit produitDansPanier : listeProduitPanier) {
  %>
@@ -50,13 +54,14 @@
 									* 100)
 							/ 100;
 					out.print(d);
-					totalAchat +=d;
+					totalAchat += d;
 		%>$
 		</span>
-		<form method="post">
+		<form action="actionPanier" method="post">
 			<input type="hidden" name="idProduit"
 				value="<%=produitDansPanier.getId()%>"> <input type="submit"
 				value="-" name="delete_one"> <input type="text"
+				disabled="disabled"
 				value="<%if (panier != null && panier.containsKey(produitDansPanier.getId())) {
 						out.print(panier.get(produitDansPanier.getId()).getQtyProduit());
 					}
@@ -70,7 +75,9 @@
 	<%
 		}
 		}
-	%> <%if(ManagerPanier.getNbArticle(request) != 0) { %>
+	%> <%
+ 	if (ManagerPanier.getNbArticle(request) != 0) {
+ %>
 	<div class="total_achats_panier">
 		Total du panier :
 		<%=totalAchat%>$
@@ -78,8 +85,13 @@
 
 	<%
 		}
-		
-	%> </main>
+	%> <buttom class="btn_1"> <a href="afficherProduit">Continuer
+		shopping</a></buttom> <%
+ 	if (ManagerPanier.getNbArticle(request) != 0) {
+ %> <buttom class="btn_2"> <a
+		href="actionPanier?afficherPanier=true">Passez à la caisse</a></buttom> <%
+ 	}
+ %> </main>
 	<!--FOOTER-->
 	<%@ include file="../views/footer.jsp"%>
 </body>
