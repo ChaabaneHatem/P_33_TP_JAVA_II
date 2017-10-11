@@ -13,7 +13,7 @@
 	<!--HEADER-->
 	<%@ include file="../views/header.jsp"%>
 
-	<%@ include file="../views/sous-menu.jsp"%>
+	<% response.sendRedirect("gestionProduit");%>
 
 	<!--FOOTER-->
 	<%@ include file="../views/footer.jsp"%>

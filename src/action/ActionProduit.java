@@ -23,6 +23,13 @@ public class ActionProduit {
 			request.setAttribute(C.produit, unProduit);
 		}
 		
+		public static void afficherProduitByCategorie(HttpServletRequest request, int idCategorie) {
+			ArrayList<Produit> lesProduits = ManagerProduits.getProduitByCategorie(idCategorie);
+			request.setAttribute(C.listeProduits, lesProduits);
+		}
+		
+		
+		
 		public static void deleteProduitById (int idProduit) {
 			ManagerProduits.DeleteProduit(idProduit);
 		}

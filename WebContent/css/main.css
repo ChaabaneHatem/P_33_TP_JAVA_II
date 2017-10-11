@@ -72,14 +72,14 @@ body {
 	margin: 65px auto;
 }
 
-div#connect-div {
+div.connect-div {
 	text-align: center;
 	display: block;
 	text-align: center;
 	width: 100%;
 }
 
-#connect-bouton {
+.connect-bouton {
 	background-color: rgb(256, 172, 154);
 	border: none;
 	height: 50px;
@@ -89,7 +89,7 @@ div#connect-div {
 	color: white;
 }
 
-#connect-bouton:hover {
+.connect-bouton:hover {
 	border-color: rgb(256, 172, 154);
 	border: 1px solid;
 	background-color: white;

@@ -35,8 +35,12 @@ public class ManagerProduits {
 			"																																									  inner join `table ingredient`  ing on co.`table ingredient_id_ingredient` = ing.id_ingredient\r\n" + 
 			"																																										where id_recette = ?";
 	private static String queryDeleteVente = "Delete from `table vente` where `table produit_id_produit`= ?";
+	
+	
 	private static String queryDeleteProduit = "Delete from `table produit` where id_produit = ?";
 	
+	
+	private static String queryGetProduitByIdCategorie = "SELECT * FROM mamie_clafoutie.`table produit` as pro inner join categorie as ca on pro.categorie_id_categorie = ca.id_categorie where pro.categorie_id_categorie = ?";
 
 	public static ArrayList<Produit> getAllProduit() {
 		ArrayList<Produit> retour = null;
@@ -106,6 +110,48 @@ public class ManagerProduits {
 
 		return retour;
 	}
+	
+	
+	
+	public static ArrayList<Produit> getProduitByCategorie(int idCategorie) {
+		ArrayList<Produit> retour = null;
+
+		try {
+			ConnectionBDD.getConnection();
+			PreparedStatement pstatment = ConnectionBDD.getPs(queryGetProduitByIdCategorie);
+			pstatment.setInt(1, idCategorie);
+			ResultSet result = pstatment.executeQuery();
+
+			if (result.isBeforeFirst()) {
+				retour = new ArrayList<>();
+
+				while (result.next()) {
+					Produit p = new Produit();
+					p.setId(result.getInt("id_produit"));
+					p.setNom(result.getString("nom"));
+					p.setPrix(result.getDouble("prix"));
+					p.setDesc(result.getString("description"));
+					p.setImgUrl(result.getString("image"));
+					CategorieProduit categorie = new CategorieProduit();
+					categorie.setIdCategorie(result.getInt(6));
+					categorie.setNomCategorie(result.getString(9));
+					p.setCategorieProduit((categorie));
+					p.setSaRecette(getRecetteByIdProduit(result.getInt("id_produit")));
+					retour.add(p);
+				}
+			}
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+
+		// ConnexionBDD.close();
+
+		return retour;
+	}
+	
+	
+	
 	
 	
 	public static boolean DeleteProduit(int idProduit) {

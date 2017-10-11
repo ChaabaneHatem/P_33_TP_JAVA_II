@@ -25,11 +25,22 @@
 		alt="Mamie clafoutis">
 	<div id="wrapper_produit">
 		<h1 id="titre-produit">Nos produits</h1>
-		<div>
-			<label for="prix">Par prix :</label> <input type="radio"
-				name="filtre" id="prix"> <label for="lettre">Par nom
-				:</label> <input type="radio" name="filtre" id="lettre">
-		</div>
+		
+		
+		
+		<form action="afficherProduit" method="post">
+			 <input type="submit" value="All" name="allProduit"> 
+			 <input type="submit" value="Trié par prix" name="TriePrix"> 
+			 <input type="submit" value="Trié par nom" name="TrieNom">
+			 <label>trier par categorie : </label>
+			 <input type="submit" value="Pain" name="categorie"> 
+			 <input type="submit" value="Viennoiserie" name="categorie">
+			 <input type="submit" value="Patisserie" name="categorie">
+		</form>
+		
+		
+		
+		
 		<%
 			for (Produit produit : listeProduits) {
 				if (listeProduits != null) {
@@ -41,10 +52,10 @@
 			<h3><%=produit.getNom()%></h3>
 			<h4><%=produit.getPrix()%>$
 			</h4>
-			
+
 			<form action="actionPanier" method="post">
-				<input type="hidden" name="idProduit" value="<%=produit.getId()%>"> <select
-					name="qtyProduit" class="quantite">
+				<input type="hidden" name="idProduit" value="<%=produit.getId()%>">
+				<select name="qtyProduit" class="quantite">
 					<option value="1">1</option>
 					<option value="2">2</option>
 					<option value="3">3</option>
@@ -52,16 +63,13 @@
 					<option value="5">5</option>
 				</select> <input type="submit" name="add_item" value="ajouter au panier">
 			</form>
-			
+
 		</div>
 		<%
 			}
 			}
 		%>
 	</div>
-
-
-
 
 	</main>
 	<!--FOOTER-->

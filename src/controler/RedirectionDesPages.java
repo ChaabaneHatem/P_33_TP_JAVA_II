@@ -33,7 +33,11 @@ public class RedirectionDesPages extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		Employe employeConnecte = (Employe) ManagerSession.get(request, "user");
-		if (employeConnecte != null) {
+
+		if (request.getParameter("deconnexion") != null) {
+			ManagerSession.deleteKey(request, "user");
+			response.sendRedirect("index.jsp");
+		} else if (employeConnecte != null) {
 			if (employeConnecte.getFonction().getType().equals("Admin")) {
 				request.getRequestDispatcher("WEB-INF/admin.jsp").forward(request, response);
 			}
@@ -57,7 +61,6 @@ public class RedirectionDesPages extends HttpServlet {
 			if (employeConnecte.getFonction().getType().equals("Admin")) {
 				request.getRequestDispatcher("WEB-INF/admin.jsp").forward(request, response);
 			}
-
 		}
 
 	}

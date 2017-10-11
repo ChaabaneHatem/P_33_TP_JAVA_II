@@ -23,6 +23,7 @@
 	<!--HEADER-->
 	<%@ include file="../views/header.jsp"%>
 	<!--MAIN -->
+	<%@ include file="../views/sous-menu.jsp"%>
 	<%
 		if (listeEmploye != null) {
 	%>
@@ -30,7 +31,7 @@
 	<h2 id="titre-gestion">Liste des Employés présents</h2>
 
 	<h2 id="lien-ajoutProd">
-		<a href="inscription">Ajouter un Employe</a>
+		<a href="Inscription">Ajouter un Employe</a>
 	</h2>
 	<table id="table-gestion">
 		<tbody>
@@ -54,7 +55,7 @@
 					<%  if(employe.isValide()) {out.print("oui") ;} else{ out.print("non");}%>
 				</td>
 				<td><a
-					href="inscription?idEmployeAModifier=<%=employe.getIdEmploye()%>">modifier
+					href="Inscription?idEmployeAModifier=<%=employe.getIdEmploye()%>">modifier
 						l'employé</a></td>
 				<td><a
 					href="retirerDonnees?idEmployeARetirer=<%=employe.getIdEmploye()%>">retirer

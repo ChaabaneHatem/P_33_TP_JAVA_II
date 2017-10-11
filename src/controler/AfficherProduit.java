@@ -50,6 +50,30 @@ public class AfficherProduit extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		String nomCategorie = null;
+		int idCategorie = 0;
+		if (request.getParameter("categorie") != null) {
+			nomCategorie = request.getParameter("categorie");
+			switch (nomCategorie) {
+			case "Pain":
+					idCategorie = 1;
+				break;
+			case "Viennoiserie":
+				idCategorie = 2;
+				break;
+			case "Patisserie":
+				idCategorie = 3;
+				break;
+			}
+			ActionProduit.afficherProduitByCategorie(request, idCategorie);
+			request.getRequestDispatcher("produit.jsp").forward(request, response);
+		}
+		
+		if(request.getParameter("allProduit") != null) {
+			ActionProduit.afficherAllProduit(request);
+			request.getRequestDispatcher("produit.jsp").forward(request, response);
+		}
+
 	}
 
 }
