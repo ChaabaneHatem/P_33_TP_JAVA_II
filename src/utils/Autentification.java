@@ -24,4 +24,24 @@ public class Autentification {
 		return roleEmploye;
 
 	}
+	
+	
+	public static Employe AuthentifiactionUser(String username, String password) {
+		Employe employeConnecte = null;
+
+		ArrayList<Employe> lesEmployes = ManagerEmploye.getAllEmploye();
+
+		for (Employe unEmploye : lesEmployes) {
+
+			if (username.equals(unEmploye.getUsername()) && password.equals(unEmploye.getPassword())) {
+				employeConnecte = unEmploye;
+			}
+
+		}
+
+		return employeConnecte;
+
+	}
+	
+	
 }
