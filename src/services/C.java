@@ -11,4 +11,5 @@ public class C {
 	public static final String listeEmploye = "fdhbcbch";
 	public static final String employe = "gfncjguikzs";
 	public static final String listeFonctionEmploye = "dhsfhskfvbk";
+	public static final String listeProduitPanier = "fdhfghjfgjfegtrey";
 }
